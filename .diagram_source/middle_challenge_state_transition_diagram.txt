@@ -1,0 +1,5 @@
+graph TD
+    A[ADDED] -->|BEGIN CHECK| B
+    B[IN-CHECK] -->|APPROVE| C
+    C[APPROVED] -->|UNAPPROVE| B
+    C -->|ACTIVATE| D[ACTIVE]

@@ -1,0 +1,12 @@
+graph TD
+    A[ADDED] -->|BEGIN CHECK| B{{IN-CHECK}}
+        B -.-> BA1
+        B -.-> BB1
+    subgraph inCheck[IN-CHECK]
+        BA1[SECURITY_CHECK_STARTED] -->|FINISH SECURITY CHECK| BA2[SECURITY_CHECK_FINISHED]
+        BB1[WORK_PERMIT_CHECK_STARTED] -->|FINISH WORK PERMIT CHECK| BB2[WORK_PERMIT_CHECK_FINISHED]
+        BA2 -.-> BC{All checks FINISHED}
+        BB2 -.-> BC
+    end
+    BC -.-> C
+    C[APPROVED] -->|ACTIVATE| D[ACTIVE]
